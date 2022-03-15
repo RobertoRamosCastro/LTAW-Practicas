@@ -13,8 +13,18 @@ const server = http.createServer(function(req, res) {
     let solicitud = "";
     if(myURL.pathname == '/') { 
       solicitud += "/web.html" 
-    }else if(myURL.pathname == "/favicon.icon"){
-      filename = 'imagenes/ico.ico'
     }else {
       solicitud = myURL.pathname;
     }
+    file_extension = solicitud.split(".")[1];
+    solicitud = "." + solicitud 
+    console.log("Nombre del fichero: " + solicitud);
+    console.log("Extension del recurso: " + file_extension);
+    const type_mime = {
+        "html" : "text/html",
+        "css" : "text/css",
+        "jpeg" : "image/jpeg",
+        "jpg" : "image/jpg",
+        "png" : "image/png",
+        "gif" : "image/gif",
+    }; 
