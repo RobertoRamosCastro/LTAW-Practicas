@@ -13,6 +13,8 @@ const server = http.createServer(function(req, res) {
     let solicitud = "";
     if(myURL.pathname == '/') { 
       solicitud += "/web.html" 
+    }else if(myURL.pathname == "/favicon.icon"){
+      filename = 'imagenes/ico.ico'
     }else {
       solicitud = myURL.pathname;
     }
@@ -27,4 +29,5 @@ const server = http.createServer(function(req, res) {
         "jpg" : "image/jpg",
         "png" : "image/png",
         "gif" : "image/gif",
+        "ico" : "image/ico",
     }; 
