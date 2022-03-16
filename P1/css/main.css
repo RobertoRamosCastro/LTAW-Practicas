@@ -27,3 +27,22 @@ body{
     height: 100px;
     cursor: pointer;
 }
+
+.btcarrito{
+    background-color: black;
+    position: absolute;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 0px;
+    margin-left: 20%;
+    border-style: none;
+}
+
+#carrito{
+    height: 80px;
+}
+
+#carrito:hover{
+    cursor: pointer;
+    height: 85px;
+}
