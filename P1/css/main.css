@@ -11,3 +11,19 @@ body{
     background-image: fixed;
     background-image: center;
 }
+
+.logo_alianza{
+    text-align: left;
+}
+
+#alianza{
+    position: absolute;
+    height: 80px;
+    margin-left: 75px;
+    margin-top: 5px;
+}
+
+#logo{
+    height: 100px;
+    cursor: pointer;
+}
