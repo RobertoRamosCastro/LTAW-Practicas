@@ -31,3 +31,21 @@ const server = http.createServer(function(req, res) {
         "gif" : "image/gif",
         "ico" : "image/ico",
     }; 
+    let mime = type_mime[file_extension];
+    console.log("El tipo mime asociado: " + mime);
+    fs.readFile(solicitud, function(err,data) {
+        if(err) {
+        res.writeHead(404, {'Content-Type': 'text/html'});
+        console.log("404 Not Found");
+        solicitud = "html/error.html";
+        data = fs.readFileSync(solicitud);
+        }else {
+        res.writeHead(200, {'Content-Type': mime});
+        console.log("200 OK")
+        }
+        res.write(data);
+        res.end();
+    });
+});
+server.listen(PUERTO);
+console.log("Server activo!. Escuchando en puerto: " + PUERTO);
