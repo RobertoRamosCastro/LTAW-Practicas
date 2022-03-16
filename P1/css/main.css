@@ -1,1 +1,13 @@
-body{background-color: blanchedalmond;}
+.header{
+    background-color: black;
+    height: 100px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+body{
+    background-image: url(../Imagenes/fondo404.jpg);
+    background-image: no-repeat;
+    background-image: fixed;
+    background-image: center;
+}
