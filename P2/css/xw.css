@@ -1,0 +1,184 @@
+.header{
+    background-color: black;
+    height: 100px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+body{
+    background-image: url(../Imagenes/fondo404.jpg);
+    background-image: no-repeat;
+    background-image: fixed;
+    background-image: center;
+}
+
+.logo_alianza{
+    text-align: left;
+}
+
+#alianza{
+    position: absolute;
+    height: 80px;
+    margin-left: 75px;
+    margin-top: 5px;
+}
+
+form{
+    margin-left: -500px;
+}
+
+#caja_busqueda{
+    position: absolute;
+    margin-left: -275px;
+    margin-top: 40px;
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    border-color: gold;
+    border-width: 3px;
+}
+
+#lupa{
+    position: absolute;
+    height: 30px;
+    margin-left: -60px;
+    margin-top: 40px;
+}
+
+#lupa:hover {
+    height: 35px;
+}
+
+#display{
+    position: absolute;
+    margin-top: 75px;
+    margin-left: 738px;
+    padding-right: 140px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+#logo{
+    height: 100px;
+    cursor: pointer;
+}
+
+.log_in{
+    position: absolute;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 1100px;
+    margin-top: -65px;
+    color: aliceblue;
+}
+
+.btcarrito{
+    background-color: black;
+    position: absolute;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 0px;
+    margin-left: 20%;
+    border-style: none;
+}
+
+#carrito{
+    height: 80px;
+}
+
+#carrito:hover{
+    cursor: pointer;
+    height: 85px;
+}
+
+.producto{
+    position: absolute;
+    height: 150px;
+    border-style: outset;
+    border-width: 5px;
+    border-color: silver;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+#fabricante{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.548);
+    position: absolute;
+    margin-top: 200px;
+    border-style: ridge;
+    border-width: 5px;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#incom{
+    height: 135px;
+}
+
+#incom:hover{
+    cursor: pointer;
+    opacity: 75%;
+}
+
+#icono{
+    height: 25px;
+}
+
+.Información{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.548);
+    position: absolute;
+    margin-left: 290px;
+    margin-top: 0px;
+    border-style: ridge;
+    border-width: 5px;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 16.75px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#compraya{
+    height: 50px;
+}
+
+#compraya:hover{
+    cursor: pointer;
+    opacity: 75%;
+}
+
+.Relacionado{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.548);
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    margin-left: 1225px;
+    margin-top: 0px;
+    border-style: ridge;
+    border-width: 5px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.producto_rel{
+    height: 125px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.producto_rel:hover{
+    opacity: 75%;
+}
+
+#sable{
+    margin-left: 100px;
+}
+
+#compra_segura{
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
