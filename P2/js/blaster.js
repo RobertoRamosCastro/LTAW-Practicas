@@ -11,4 +11,12 @@ function main() {
     //Obtengo la caja de búsqueda y el display
     var caja = document.getElementById("caja_busqueda");
     var display = document.getElementById("display");
+
+    xwing.onmouseover = () => {
+        audioxwing.play();
+    }
+
+    sable.onmouseover = () => {
+        audiosable.play();
+    }
 }
