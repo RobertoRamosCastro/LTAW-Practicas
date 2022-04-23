@@ -17,4 +17,17 @@ function main() {
     //Obtengo la caja de búsqueda y el display
     var caja = document.getElementById("caja_busqueda");
     var display = document.getElementById("display");
+
+    // Activamos la reproducción de los audios al pasar el mouse por encima
+    sable.onmouseover = () => {
+        audiosable.play();
+    }
+
+    blaster.onmouseover = () => {
+        audioblaster.play();
+    }
+
+    xwing.onmouseover = () => {
+        audioxiwing.play();
+    }
 }
