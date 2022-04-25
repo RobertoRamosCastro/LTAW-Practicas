@@ -1,0 +1,25 @@
+body{
+    background-image: url(./archivos_para_css/fondo5.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat ;
+    text-align: center;
+}
+
+@font-face {
+    font-family: fuente1;
+    src: url(./archivos_para_css/fuente1.ttf);
+}
+
+@font-face {
+    font-family: fuente2;
+    src: url(./archivos_para_css/fuente2.ttf);
+}
+
+h2{
+    font-family: fuente2;
+    color: rgb(218, 187, 228);
+    font-size: 50px;
+    text-shadow: -1px 0 black, 0 1px black,
+	  1px 0 black, 0 -1px black
+}
