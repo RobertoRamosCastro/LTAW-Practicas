@@ -24,7 +24,7 @@ h2{
 	  1px 0 black, 0 -1px black
 }
 
-msg_entry{
+#msg_entry{
     border-style: ridge;
     border-color: rgb(194, 158, 236);
     border-width: 5px;
