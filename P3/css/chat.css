@@ -23,3 +23,35 @@ h2{
     text-shadow: -1px 0 black, 0 1px black,
 	  1px 0 black, 0 -1px black
 }
+
+msg_entry{
+    border-style: ridge;
+    border-color: rgb(194, 158, 236);
+    border-width: 5px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.548);
+    color: white;
+    width: 50%;
+    height: 30px;
+    font-family: fuente1;
+    font-size: 25px;
+}
+
+#display{
+    border-style: outset;
+    border-width: 15px;
+    border-radius: 20px;
+    border-color: rgb(194, 158, 236);
+    background-color: rgba(0, 0, 0, 0.548);
+    height: 500px;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: left;
+    font-family: fuente1;
+    font-size: 25px;
+    color: rgb(218, 187, 228);
+    overflow: scroll;
+    padding-left: 2%;
+    padding-left: 2%;
+    padding-bottom: 0%;
+}
