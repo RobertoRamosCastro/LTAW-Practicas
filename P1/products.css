@@ -1,10 +1,9 @@
 body {
-    background-image: url("./img/background.jpg");
-
+    background-color: rgba(0, 183, 255, 0.603);
     font-family: 'Medula One', cursive;
     letter-spacing: 0.073125em;
     font-size: 20px;
-    color: #B99F65;
+    color: black;
     text-align: center;
     margin-bottom: 70px;
 }
