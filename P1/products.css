@@ -26,22 +26,12 @@ section {
     margin-top: 20px;
   }
 
-img, canvas{
-    -webkit-box-shadow: 0px 0px 51px -8px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 51px -8px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 51px -8px rgba(0,0,0,0.75);
-}
-
 img {
     width: 50px;
 }
 
 .center{
     text-align:center;
-}
-
-.seleccionado {
-    width: 200px;
 }
 
 .descriptor {
@@ -66,6 +56,7 @@ img {
     text-align:center;
     display: block;
     margin: 50px;
+    background-color: blueviolet;
 }
 
 #articulo {
@@ -74,16 +65,3 @@ img {
     border-image-slice: 27 fill;
     background-color: rgba(0,0,0,0);
 }
-
-
-figure {
-    display: inline-block;
-}
-
-.divider {
-    width: 100%;
-}
-
-#product {
-    margin-bottom: -35px;
-  }
