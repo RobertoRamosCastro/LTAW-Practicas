@@ -1,6 +1,4 @@
 body {
-    background-image: url(../img/background.jpg);
-
     font-family: 'Medula One', cursive;
     letter-spacing: 0.073125em;
     font-size: 20px;
@@ -32,6 +30,8 @@ img {
 
 .center{
     text-align:center;
+    background-color: aqua;
+
 }
 
 .descriptor {
