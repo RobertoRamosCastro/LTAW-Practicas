@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
   function dir_document() {
     // Dirección para cargar
     if (dir.pathname == "/") {
-      file = "index.html";
+      file = "main.html";
     } else {
       var direccion = dir.pathname;
       var len = direccion.length;
