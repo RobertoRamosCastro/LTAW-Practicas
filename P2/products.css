@@ -1,0 +1,84 @@
+body {
+    background-color: rgba(0, 183, 255, 0.603);
+    font-family: 'Medula One', cursive;
+    letter-spacing: 0.073125em;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+p {
+    float: left;
+}
+
+hr {
+    border: 1px solid rgba(185, 159, 101, 1);
+    margin: 10px;
+}
+
+section {
+    background: url("./img/white.jpg");
+    height: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+.btn {
+    position: absolute;
+  background-color: #000000;
+  text-align: center;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: dashed;
+  display: inline-block;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow:  0 8px 16px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 65%;
+}
+
+img {
+    width: 50px;
+}
+
+.center{
+    text-align:center;
+}
+
+.descriptor {
+    background-image: url("../img/blue.jpg");
+    border-radius: 20px;
+    display: inline;
+    float: right;
+    padding: 15px;
+
+    margin-right: 40%;
+    margin-top: -5%;
+    width: 350px;
+    height: 150px;
+
+    -webkit-box-shadow: 10px 10px 19px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 10px 10px 19px 0px rgba(0,0,0,1);   
+    box-shadow: 10px 10px 19px 0px rgba(0,0,0,1);
+}
+
+.imagenes{
+    width:auto;
+    height:auto;
+    text-align:center;
+    display: block;
+    margin: 50px;
+    margin-top: 5%;
+}
+
+#articulo {
+    border: silver 10px solid;
+    border-image-source: url("../img/border.png");
+    border-image-slice: 27 fill;
+    background-color: rgba(0,0,0,0);
+}
