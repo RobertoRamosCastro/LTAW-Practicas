@@ -42,3 +42,29 @@ hr {
     font-family: 'Medula One', cursive;
     color: rgba(99, 79, 15, 0.6);
 }
+
+.button:hover{
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+
+input {
+    border-right: none;
+    border-top: hidden;
+    border-left: hidden;
+    border-bottom: 2px solid rgba(99, 79, 15, 0.6);
+    border-radius: 0px 0px 22px 22px;
+    outline: none;
+    position: relative;
+    font-family: inherit;
+    text-decoration: none;
+    background-color: transparent;
+    transition: color 0.2s ease-in;
+    margin-bottom: 5%;
+}
+input:hover, input:focus{
+    background-color: rgba(0,0,0,0.3);
+    transition: color 0.2s ease-in;
+}
