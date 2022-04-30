@@ -1,0 +1,19 @@
+body {
+    background-image: url(../img/background.jpg);
+
+    font-family: 'Medula One', cursive;
+    letter-spacing: 0.073125em;
+    font-size: 18px;
+    color: #B99F65;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.title {
+    font-size: 25px;
+}
+
+hr {
+    border: 1px solid rgba(185, 159, 101, .5);
+    margin-bottom: 10%;
+}
