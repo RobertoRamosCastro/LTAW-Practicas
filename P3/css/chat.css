@@ -1,19 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
-    background-image: url(./archivos_para_css/fondo5.jpg);
-    background-attachment: fixed;
-    background-position: center;
+    background: radial-gradient(rgb(159, 217, 250) 5%, rgb(136, 231, 255) 25%, #cbe5ff 50%);
     background-repeat: no-repeat ;
-    text-align: center;
-}
-
-@font-face {
-    font-family: fuente1;
-    src: url(./archivos_para_css/fuente1.ttf);
-}
-
-@font-face {
-    font-family: fuente2;
-    src: url(./archivos_para_css/fuente2.ttf);
+    height: 100vh;
 }
 
 h2{
@@ -22,6 +14,17 @@ h2{
     font-size: 50px;
     text-shadow: -1px 0 black, 0 1px black,
 	  1px 0 black, 0 -1px black
+}
+
+#user {
+    position: absolute;
+    top:50%;
+    left: 50%;           
+    margin-left: -220px;
+
+    font-size: 200%;
+    color: rgb(0, 0, 0);
+    font-weight: 100;
 }
 
 #msg_entry{
@@ -55,3 +58,51 @@ h2{
     padding-left: 2%;
     padding-bottom: 0%;
 }
+
+p {
+    display: block;
+  }
+
+.chat {
+   width: 75%;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 15%;
+   border: 1px solid rgb(179, 179, 179);
+   border-radius: 5px;
+   padding: 5px;
+   box-shadow: 10px 6px 25px 0px rgba(0,0,0,0.58);
+   text-align:center;  
+   animation-name: color;
+   animation-duration: 5s;
+   animation-iteration-count: infinite;
+}
+
+#msg_recibidos{
+    height: 250px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+    position: relative;
+}
+
+#priv_user {
+    margin-left: 50%;
+    color: rgb(144, 125, 255);
+    text-align: right;
+}
+
+.server_msg {
+    color:rgb(179, 179, 179);
+    text-align: center;
+}
+
+html, input {
+    font-family:
+      "HelveticaNeue-Light",
+      "Helvetica Neue Light",
+      "Helvetica Neue",
+      Helvetica,
+      Arial,
+      "Lucida Grande",
+      sans-serif;
+  }
