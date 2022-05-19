@@ -35,3 +35,40 @@ app.use('/', express.static(__dirname +'/'));
 
 //-- El directorio publico contiene ficheros estáticos
 app.use(express.static('public'));
+
+//------------------- GESTION SOCKETS IO
+//-- Evento: Nueva conexion recibida
+io.on('connect', (socket) => {
+  
+  console.log('** NUEVA CONEXIÓN **'.yellow);
+
+  // Obtengo el nombre de usuario
+  socket.on("nickname", (nickname) => {
+    console.log('Nombre de usuario: ' + nickname.red)
+    welcome_msg = nickname + ' se ha unido al chat!'
+    socket.username = nickname;
+    dict.push({ name: socket.username, id: socket.id });
+    io.emit('server_msg', welcome_msg);
+    users += 1;
+  });
+
+  //-- Evento de desconexión
+  socket.on('disconnect', function(){
+    console.log('** CONEXIÓN TERMINADA **'.yellow);
+    users -= 1;
+  });  
+
+  //-- Evento de escribiendo
+  socket.on('typing', (data) => {
+      io.emit('display', data)
+  });  
+
+  //-- Quitar escribiendo
+  socket.on('notTyping', (data) => {
+    io.emit('hide', data)
+  });  
+  
+//-- Lanzar el servidor HTTP
+//-- ¡Que empiecen los juegos de los WebSockets!
+server.listen(PUERTO);
+console.log("Escuchando en puerto: " + PUERTO);
