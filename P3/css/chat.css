@@ -3,59 +3,55 @@
 }
 
 body{
-    background: radial-gradient(rgb(159, 217, 250) 5%, rgb(136, 231, 255) 25%, #cbe5ff 50%);
-    background-repeat: no-repeat ;
-    height: 100vh;
-}
-
-h2{
-    font-family: fuente2;
-    color: rgb(218, 187, 228);
-    font-size: 50px;
-    text-shadow: -1px 0 black, 0 1px black,
-	  1px 0 black, 0 -1px black
+    background-image: url("./betaTwitch.PNG");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover ;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 #user {
     position: absolute;
-    top:50%;
-    left: 50%;           
-    margin-left: -220px;
-
+    top:-1%;
     font-size: 200%;
-    color: rgb(0, 0, 0);
+    color: white;
     font-weight: 100;
+    text-align: center;
+    margin-left: -7%;
 }
 
 #msg_entry{
     border-style: ridge;
-    border-color: rgb(194, 158, 236);
+    border-color: blue;
     border-width: 5px;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.548);
     color: white;
     width: 50%;
     height: 30px;
+    text-align: center;
     font-family: fuente1;
     font-size: 25px;
 }
 
 #display{
     border-style: outset;
+    width: 125%;
+    margin-left: -45%;
     border-width: 15px;
     border-radius: 20px;
-    border-color: rgb(194, 158, 236);
+    border-color: blue;
     background-color: rgba(0, 0, 0, 0.548);
     height: 500px;
-    margin-left: 20%;
     margin-right: 20%;
     text-align: left;
     font-family: fuente1;
     font-size: 25px;
-    color: rgb(218, 187, 228);
-    overflow: scroll;
-    padding-left: 2%;
-    padding-left: 2%;
+    color: blue;
+    overflow-y: scroll;
     padding-bottom: 0%;
 }
 
@@ -64,35 +60,36 @@ p {
   }
 
 .chat {
-   width: 75%;
-   margin-left: auto;
+   width: 28.2%;
+   margin-left: 1372px;
    margin-right: auto;
-   margin-top: 15%;
-   border: 1px solid rgb(179, 179, 179);
+   margin-top: 15.3%;
+   border: 5px solid rgb(179, 179, 179);
    border-radius: 5px;
    padding: 5px;
    box-shadow: 10px 6px 25px 0px rgba(0,0,0,0.58);
    text-align:center;  
-   animation-name: color;
-   animation-duration: 5s;
-   animation-iteration-count: infinite;
+   background-color: black;
+   color: white;
+   position: absolute;
 }
 
 #msg_recibidos{
-    height: 250px;
-    padding-bottom: 20px;
+    height: 50%;
+    margin-top: 10%;
+    padding-left: 200px;
     overflow-y: auto;
     position: relative;
 }
 
 #priv_user {
     margin-left: 50%;
-    color: rgb(144, 125, 255);
+    color: orange;
     text-align: right;
 }
 
 .server_msg {
-    color:rgb(179, 179, 179);
+    color:green;
     text-align: center;
 }
 
