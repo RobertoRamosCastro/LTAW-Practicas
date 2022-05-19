@@ -97,3 +97,23 @@ socket.on("server_msg", (msg)=>{
     play_sound(sound_msg);
     display.innerHTML += '<p class="server_msg">' + msg + '</p>'; 
 });
+
+//-- Al apretar el botón se envía un mensaje al servidor
+msg_entry.onchange = () => {
+  if (nickname) {
+    if (msg_entry.value)
+    socket.send(msg_entry.value);
+  
+    //-- Borrar el mensaje actual
+    msg_entry.value = "";
+  } else {
+    socket.emit('nickname',msg_entry.value);
+    user = msg_entry.value;
+    msg_entry.value = "";
+    login_msg.style.display = 'none'
+    // El fondo pasa a blanco
+    login_backgr[0].style.animationName = 'static'
+    login_backgr[0].style.textAlign = "left"
+    nickname = true;
+  }
+}
