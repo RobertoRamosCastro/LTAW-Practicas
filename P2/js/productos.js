@@ -36,7 +36,22 @@ function main() {
             imgs[i].style.borderImageSource = 'url(../img/border.png)'
           }
         }
+      img.style.backgroundColor = 'rgba(0,0,0,0.75)'
+      img.style.border = 'silver 10px solid'
+      img.style.borderImageSlice = '27 fill'
+      img.style.borderImageSource = 'url(../img/border.png)'
+      
+      var text = img.alt;
+      console.log(text)
+      console.log(img.name)
+
+      if (text == "") {
+        text = "Sin descripcion"
+      } else {
+        description.innerText = "\n" + text;
+      }
+      art_name.innerText = img.name;
+    }
     console.log("Imagen lista...");
   }
-
 }
