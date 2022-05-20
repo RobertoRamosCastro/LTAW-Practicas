@@ -68,3 +68,7 @@ input:hover, input:focus{
     background-color: rgba(0,0,0,0.3);
     transition: color 0.2s ease-in;
 }
+
+#backg{
+    background-color: black;
+}
