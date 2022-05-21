@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Permitir sólo scripts y ficheros de la máquina local -->
+    <!-- Con esto se elimina el aviso de seguridad: Insecure Content-Security-Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';" />
+    <!-- Hoja de estilo de la interfaz -->
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <!-- Cargar el proceso asociado a esta página -->
+    <script src="index.js" defer></script>
+
+    <title>Mi APP (version 9)</title>
+</head>
+<body>
+  <div class="info">
+    <h1>INTERFAZ GRÁFICA</h1>
+
+    <hr>
+    <h2>Información:</h2>
+    <ul>
+        <li>Version node: <span id="info1" class="blue"></span> </li>
+        <li>Version electron: <span id="info2" class="blue"></span></li>
+        <li>Version chrome: <span id="info3" class="blue"></span></li>
+        <li>Plataforma: <span id="info4" class="blue"></span></li>
+        <li>Arquitectura: <span id="info5" class="blue"></span></li>
+        <li>Directorio: <span id="info6" class="blue"></span></li>
+    </ul>
+    <hr>
+    <h2>Número de usuarios conectados: </h2>
+    <p id="users"></p>
+    <hr>
+    <h2>Dirección IP</h2>
+    <span id="dirIP" class="blue"></span>
+    <hr>
+    <h2>Código QR</h2>
+   <img src="" id="qr">
+   <hr>
+  </div>
+
+  <div class="div_chat">
+    <div class="chat">
+      <div id="msg_recibidos">
+        <p id="display"></p>
+      </div>
+    </div>
+    <hr>
+    <p>   <input type="button" value="Enviar mensaje" id="btn_test"> </p>
+  </div>
+    
+</body>
+</html>

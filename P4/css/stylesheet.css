@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  
+  body {
+    background: radial-gradient(rgb(159, 217, 250) 5%, rgb(136, 231, 255) 25%, #cbe5ff 50%);
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  
+  #user {
+        position: absolute;
+        top:50%;
+        left: 50%;           
+        margin-left: -220px;
+  
+        font-size: 200%;
+        color: rgb(0, 0, 0);
+        font-weight: 100;
+  }
+  
+  html, input {
+    font-family:
+      "HelveticaNeue-Light",
+      "Helvetica Neue Light",
+      "Helvetica Neue",
+      Helvetica,
+      Arial,
+      "Lucida Grande",
+      sans-serif;
+  }
+  
+  p {
+    display: block;
+  }
+  
+  #msg_recibidos{
+    height: 250px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  .info {
+    float: left;
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: auto;
+    width: 40%;
+    background-color: rgb(213, 206, 241);
+    padding: 10px;
+  }
+  
+  .div_chat{
+    width: 50%;
+    margin: 15px;
+    margin-right: 5%;
+    float: right;
+  }
+  
+  
