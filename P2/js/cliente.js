@@ -17,5 +17,57 @@ caja.oninput = () => {
     //-- hay cambios de estado en la petición
     m.onreadystatechange = () => {
 
+        //-- Petición enviada y recibida. Todo OK!
+        if (m.readyState==4) {
+
+            //-- Solo la procesamos si la respuesta es correcta
+            if (m.status==200) {
+                console.log("Respuesta")
+                //-- La respuesta es un objeto JSON
+                let productos = JSON.parse(m.responseText)
+
+                console.log('Productos: ' + Object.keys(productos));
+
+                //-- Borrar el resultado anterior
+                display1.innerHTML = "";
+
+                //  coger por aqui y cortar
+
+                //--Recorrer los productos del objeto JSON
+                for (let i=0; i < productos.length; i++) {
+
+                    //-- Añadir cada producto al párrafo de visualización
+                    display1.innerHTML += productos[i];
+
+                    //-- Separamos los productos por ',''
+                    if (i < productos.length-1) {
+                    display1.innerHTML += ', ';
+                    }
+                }
+
+            } else {
+                //-- Hay un error en la petición
+                //-- Lo notificamos en la consola y en la propia web
+                console.log("Error en la petición: " + m.status + " " + m.statusText);
+            }
+        }
+    }
+
+    console.log(caja.value.length);
+
+    //-- La peticion se realiza solo si hay al menos 1 carácter
+    if (caja.value.length >= 1) {
+            
+      resultado.style.display = "block"
+
+      //-- Configurar la petición
+      m.open("GET","/productos?param1=" + caja.value, true);
+
+      //-- Enviar la petición!
+      m.send();
+      
+    } else {
+        resultado.style.display = "none"
+        display1.innerHTML="";
     }
 }
