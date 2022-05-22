@@ -451,7 +451,6 @@ const server = http.createServer((req, res) => {
       res.end();
     });
   });
-});
 
 //-- Activar el servidor: ¡Que empiece la fiesta!
 server.listen(PUERTO);
