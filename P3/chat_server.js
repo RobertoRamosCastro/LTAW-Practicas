@@ -79,7 +79,7 @@ io.on('connect', (socket) => {
     if (msg=='/help') {
         console.log("Mensaje de ayuda".red)
         msg = '/help: Devuelve la lista con todos los comandos' + "<br>" +
-        '/list : Devuelve el numero de usuarios conectados' + "<br" +
+        '/list : Devuelve el numero de usuarios conectados' + "<br>" +
         '/hello : Devuelve el saludo del servidor' + "<br>" +
         '/date : Devuelve la fecha' + "<br>" +
         '/"nombre": envía un mensaje privado al usuario'
