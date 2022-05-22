@@ -192,9 +192,56 @@ const server = http.createServer((req, res) => {
     console.log("User: " + user);
     console.log("Objetos: " + items);
 
-   
-    
-  
+  //-- Si hay datos en el cuerpo, se imprimen
+  req.on('data', (cuerpo) => {
+
+    //-- Los datos del cuerpo son caracteres
+    req.setEncoding('utf8');
+    console.log(`Cuerpo (${cuerpo.length} bytes)`)
+    console.log(` ${cuerpo}`);
+
+    const myURL = new URL('http://' + req.headers['host'] + '?' + cuerpo);
+    //-- Leer los parámetros
+
+    // Inicio de sesión
+    let nombre = myURL.searchParams.get('usuario');
+    let passw = myURL.searchParams.get('password');
+    console.log("Nombre: " + nombre);
+    console.log("Nombre: " + passw);
+
+    for (i=0; i<tienda["usuarios"].length; i++){
+      console.log("Tienda JSON: " + tienda["usuarios"][i]["nombre"]);
+      var json_user = tienda["usuarios"][i]["nombre"];
+      var json_pass = tienda["usuarios"][i]["password"];
+
+      if (json_user == nombre && json_pass == passw ) {
+        console.log("usuario existe");
+        user = nombre;
+        registered = true;
+        break;
+      } 
+    }
+
+    let direccion = myURL.searchParams.get('direccion');
+    let tarjeta = myURL.searchParams.get('tarjeta');
+    if (direccion) {
+      console.log("Es un pedido: " + tarjeta)
+        
+      var n_pedido = {
+         "username": user_activo,
+         "direccion": direccion,
+         "tarjeta": tarjeta,
+         "lista": item_list.split(":") 
+      }
+
+      // lo añado al array de pedidos
+      tienda["pedidos"].push(n_pedido)
+
+      let json_salida = JSON.stringify(tienda);
+      fs.writeFileSync(FICHERO_JSON,json_salida);
+    }
+
+
 //-- Activar el servidor: ¡Que empiece la fiesta!
 server.listen(PUERTO);
 console.log("Server listo!. Escuchando en puerto: " + PUERTO);
