@@ -388,7 +388,69 @@ const server = http.createServer((req, res) => {
       return
     }
 
-   
+    //Tipos de archivo y c_type
+
+    switch (rute) {
+      case "png":
+        c_type = "image/" + rute;
+        break;
+      case "jpg":
+        c_type = "image/" + rute;
+        break;
+      case "css":
+        c_type = "text/" + rute;
+        break;
+      case "js":
+        c_type = "text/javascript";
+        break;
+      case "ico":
+        c_type = "image/ico"
+        break;
+      case "/":
+        c_type = "text/html"
+        break;
+      case "html":
+        c_type = "text/html"
+        break;
+    }
+
+     // Búsqueda autocompletar
+    //-- Leer los parámetros
+    let param1 = myURL.searchParams.get('param1');
+
+    if (param1) {
+      console.log("  Param: " +  param1);
+
+    let result = [];
+
+    for (i=0; i<tienda["productos"].length; i++){
+      var product_name = tienda["productos"][i]["nombre"]
+      var product_url = tienda["productos"][i]["url"]
+
+        //-- Si el producto comienza por lo indicado en el parametro
+        //-- meter este producto en el array de resultados
+        if (param1 && product_name) {
+          // Paso a mayúsculas
+          var paramU = param1.toUpperCase();
+          var productU = product_name.toUpperCase();
+          if (productU.startsWith(paramU)) {
+                 var prueba = '<a href="' + product_url +'">' + product_name + '</a>' + '<br>'
+                 result.push(prueba);
+          }
+        }
+
+        c_type = "application/json";
+        data = JSON.stringify(result);
+        
+    }
+  }
+
+    //-- Generar el mensaje de respuesta
+      res.writeHead(200, {'Content-Type': c_type});
+      res.write(data);
+      res.end();
+    });
+  });
 });
 
 //-- Activar el servidor: ¡Que empiece la fiesta!
