@@ -241,6 +241,46 @@ const server = http.createServer((req, res) => {
       fs.writeFileSync(FICHERO_JSON,json_salida);
     }
 
+    // Añadiendo objetos desde root
+    let new_obj = myURL.searchParams.get('new_obj');
+    let new_des = myURL.searchParams.get('new_des');
+    let stock = myURL.searchParams.get('stock');
+    let section = myURL.searchParams.get('seccion')
+    console.log('SECCION --> ' + section)
+    var new_url = "";
+
+    switch (section) {
+      case 'basket':
+        new_url = "html/basket.html";
+        break;
+    
+      case 'f11':
+        new_url = "html/f11.html"
+        break;
+
+      case 'Escudos':
+        new_url = "html/fs.html"
+        break;
+    }
+    if (new_obj) {
+      var add_obj = {
+        "url": new_url,
+        "nombre": new_obj,
+        "descripción": new_des,
+        "stock": parseInt(stock) 
+     }
+
+     // lo añado al array de pedidos
+     tienda["productos"].push(add_obj)
+
+     let json_salida = JSON.stringify(tienda);
+     fs.writeFileSync(FICHERO_JSON,json_salida);
+      
+    }
+
+  });
+
+});
 
 //-- Activar el servidor: ¡Que empiece la fiesta!
 server.listen(PUERTO);
