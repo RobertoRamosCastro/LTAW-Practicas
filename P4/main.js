@@ -10,21 +10,21 @@ let win = null;
 //-- Punto de entrada. En cuanto electron está listo,
 //-- ejecuta esta función
 electron.app.on('ready', () => {
-    console.log("Evento Ready!");
-    console.log("Enviando IP y puerto");
-    
+  console.log("Evento Ready!");
+  console.log("Enviando IP y puerto");
+  
 
-    //-- Crear la ventana principal de nuestra aplicación
-    win = new electron.BrowserWindow({
-        width: 600,   //-- Anchura 
-        height: 600,  //-- Altura
+  //-- Crear la ventana principal de nuestra aplicación
+  win = new electron.BrowserWindow({
+      width: 600,   //-- Anchura 
+      height: 600,  //-- Altura
 
-        //-- Permitir que la ventana tenga ACCESO AL SISTEMA
-        webPreferences: {
-          nodeIntegration: true,
-          contextIsolation: false
-        }
-    });
+      //-- Permitir que la ventana tenga ACCESO AL SISTEMA
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false
+      }
+  });
   // Quito menú por defecto
   win.setMenuBarVisibility(false)
 

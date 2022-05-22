@@ -1,135 +1,78 @@
+//-- Importo los modulos http, fs y url
 const http = require('http');
 const fs = require('fs');
-const url = require('url');
-var rute = "";
+
+//-- URL no hace falta ponerla
+//--const URL = require('url');
 
 //-- Definir el puerto a utilizar
-const PUERTO = 9000;
-
-//-- HTML página de error
-const ERROR = fs.readFileSync('html/error.html', 'utf-8');
-
-//-- Imprimir informacion sobre el mensaje de solicitud
-function print_info_req(req) {
-  console.log("");
-  console.log("Mensaje de solicitud");
-  console.log("====================");
-  console.log("Método: " + req.method);
-  console.log("Recurso: " + req.url);
-  console.log("Version: " + req.httpVersion)
-}
-
-// Función para obtener tipo de archivo
-function getExtension(filename) {
-  return filename.split('.').pop();
-}
+const PUERTO = 9004; 
 
 //-- Crear el servidor
-const server = http.createServer((req, res) => {
-  // Obtengo URL
-  let dir = url.parse(req.url);
-
+const server = http.createServer(function(req, res) {
+    
   //-- Indicamos que se ha recibido una petición
-  console.log("Petición recibida!");
+  console.log("\nPetición recibida!");
 
-  // Obtengo tipo de archivo
-  rute = getExtension(req.url);
-  print_info_req(req);
-  console.log(rute);
+  //-- Obtengo URL del mensaje de solicitud
+  let myURL = new URL(req.url, 'http://' + req.headers['host']);
+  console.log("La URL del recurso solicitado es: " + myURL.href)
 
-  function dir_document() {
-    // Dirección para cargar
-    if (dir.pathname == "/") {
-      file = "/html/main.html";
-    } else {
-      var direccion = dir.pathname;
-      var len = direccion.length;
-      var r_slice = direccion.slice(1,len);
-      file = r_slice;
+    //-- Declaro variable para almacenar los recursos pedidos
+  let solicitud = "";
+
+  //-- Analizo la peticion
+  if(myURL.pathname == '/') { //-- http://ip:port/
+    solicitud += "/main.html" //-- Pagina principal
+  }else { // Otra peticion
+    solicitud = myURL.pathname;
+  }
+  
+  //-- Extraigo el recurso pedido y su extension
+  file_extension = solicitud.split(".")[1]; //-- Extension
+  solicitud = "." + solicitud //-- El punto es necesario
+
+  console.log("Nombre del fichero: " + solicitud);
+  console.log("Extension del recurso: " + file_extension);
+
+
+  //-- Declaracion de los tipo de mime
+  const type_mime = {
+    "html" : "text/html",
+    "css" : "text/css",
+    "jpeg" : "image/jpeg",
+    "jpg" : "image/jpg",
+    "png" : "image/png",
+    "gif" : "image/gif",
+    "ico" : "image/ico",
+  }; 
+
+  //-- Extraigo el tipo mime
+  let mime = type_mime[file_extension];
+  console.log("El tipo mime asociado: " + mime);
+
+  //- Leer el fichero de manera sincrona
+  fs.readFile(solicitud, function(err,data) {
+    //-- En caso de error (pagina no encuentrada)
+    if(err) {
+      res.writeHead(404, {'Content-Type': 'text/html'});
+      console.log("404 Not Found");
+      solicitud = "./html/error.html";
+      data = fs.readFileSync(solicitud);
+       
+    }else { //-- En caso de NO dar error
+      res.writeHead(200, {'Content-Type': mime});
+      console.log("200 OK")
     }
-  }
-
-  dir_document();
-
-  // Compruebo si existe la dirección si es una página
-  if (rute == 'html') {
-    if(fs.existsSync(dir.pathname)){
-      // Si existe se manda a esa dirección
-      dir_document(); 
-   } 
-  }
-
-
-  //-- Construir el objeto url con la url de la solicitud
-  const myURL = new URL(req.url, 'http://' + req.headers['host']);   
-  if (myURL.pathname == '/ls') {
-    let local_files = []
-    var local = process.cwd();
-
-    fs.readdir(local, (err, files) => {
-      if (err) {
-          throw err;
-      }
-
-      files.forEach(file => {
-          console.log(file);
-          local_files.push(file)
-      });
-      local_files = local_files.toString();
-
-      var print_local = local_files.replace(/,/g,'<br>');
-      res.setHeader('Content-Type','text/html; charset=utf-8"');
-      res.write(print_local,'utf-8');
-      res.end();
-      return;
-    });
-  } else {
-    fs.readFile(file, function(err, data) {
-      
-      if (err) {
-        if (myURL.pathname == '/ls') {
-          
-        }
-          res.setHeader('Content-Type','text/html');
-          res.statusCode = 404;
-          res.write(ERROR);
-          res.end();
-          return;
-      }
-      
-      let c_type = "text/html"
-
-      //Tipos de archivo y c_type
-
-      switch (rute) {
-        case "png":
-          c_type = "image/" + rute;
-          break;
-        case "jpg":
-          c_type = "image/" + rute;
-          break;
-        case "css":
-          c_type = "text/" + rute;
-          break;
-        case "js":
-          c_type = "text/javascript";
-          break;
-        case "ico":
-          c_type = "image/ico"
-          break;
-        default:
-          c_type = "text/html"
-          break;
-      }
-
-      //-- Generar el mensaje de respuesta
-      res.writeHead(200, {'Content-Type': c_type});
-      res.write(data);
-      res.end();
-    });
-  }
+    
+    // Envio el tipo de fichero solicitado
+    res.write(data);
+    res.end();
+  });
+   
 });
-
-//-- Activar el servidor: ¡Que empiece la fiesta!
+  
+//-- Activo el servidor:
 server.listen(PUERTO);
-console.log("Server listo!. Escuchando en puerto: " + PUERTO);
+
+console.log("Server tienda activado!. Escuchando en puerto: " + PUERTO);
