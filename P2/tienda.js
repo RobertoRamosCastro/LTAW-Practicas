@@ -126,6 +126,74 @@ const server = http.createServer((req, res) => {
   // Obtengo URL
   let dir = url.parse(req.url);
 
+  //-- Indicamos que se ha recibido una petición
+  console.log("Petición recibida!");
+
+  // Obtengo tipo de archivo
+  rute = getExtension(req.url);
+  print_info_req(req);
+  console.log(rute);
+
+  function dir_document() {
+    // Dirección para cargar
+    if (dir.pathname == "/") {
+      file = "index.html";
+    } else {
+      var direccion = dir.pathname;
+      var len = direccion.length;
+      var r_slice = direccion.slice(1,len);
+      file = r_slice;
+    }
+  }
+
+  dir_document();
+
+  // Compruebo si existe la dirección si es una página
+  if (rute == 'html') {
+    if(fs.existsSync(dir.pathname)){
+      // Si existe se manda a esa dirección
+      dir_document(); 
+   } 
+  }
+
+
+  //-- Construir el objeto url con la url de la solicitud
+  const myURL = new URL(req.url, 'http://' + req.headers['host']);      
+
+  if (myURL.pathname == '/procesar') {
+    c_type = "text/html";
+    file = FICHERO_RESP;
+  }
+
+  if (myURL.pathname == '/pedido') {
+    c_type = "text/html"
+    file = FICHERO_PEDIDO;
+    
+  }
+
+  if (myURL.pathname == '/objeto') {
+    c_type = "text/html"
+    file = FICHERO_ROOT;    
+  }
+
+  if (myURL.pathname == '/productos') {
+    c_type = "application/json";
+    const DIR_PRODUCTOS = 'json/productos.json';
+    var json_productos = tienda["productos"]
+    let json_salida = JSON.stringify(json_productos);
+    fs.writeFileSync(DIR_PRODUCTOS,json_salida);
+    file = DIR_PRODUCTOS;
+  }
+
+    //-- Obtener le usuario que ha accedido
+    //-- null si no se ha reconocido
+    let user = get_user(req);
+    let items = get_items(req);
+    console.log("User: " + user);
+    console.log("Objetos: " + items);
+
+   
+    
   
 //-- Activar el servidor: ¡Que empiece la fiesta!
 server.listen(PUERTO);
