@@ -280,6 +280,115 @@ const server = http.createServer((req, res) => {
 
   });
 
+  fs.readFile(file, function(err, data) {
+    console.log(file)
+    if (err) {
+      res.setHeader('Content-Type','text/html');
+      res.statusCode = 404;
+      res.write(ERROR);
+      res.end();
+      return;
+    }
+
+    if (file == FICHERO_RESP) {
+      c_type = "text/html";
+
+      if (registered) {
+
+        //-- Asignar la cookie de usuario
+        res.setHeader('Set-Cookie', "user="+user);
+        content = RESPUESTA.replace("PRUEBA", user);
+        content = content.replace("REGISTRO", "Usuario válido");
+      } else {
+        content = RESPUESTA.replace("PRUEBA", "Usuario y/o contraseña incorrecto");
+        content = content.replace("REGISTRO", "Error");
+      }
+
+      res.setHeader('Content-Type', c_type);
+      res.write(content);
+      res.end();
+      // Reinicio valor de usuario registrado
+      registered = false;
+      return;
+    }
+
+    if (file == FICHERO_CESTA) {
+      c_type = "text/html"
+      if (user_activo) {
+        // Usuario
+        console.log('Hay un usuario en la sesión')
+        content = CESTA.replace("Inicie sesión", user);
+        // Lista
+        if (items) {
+          console.log("añadir objetos")
+          var item_array = items.split(":")
+          var print_item = ""
+          for (let i = 0; i < item_array.length; i++) {
+            print_item += item_array[i] + "<br>";
+          }
+          console.log("IMPRIME: " + print_item)
+          content = content.replace("Lista vacía",print_item);
+        } else {          
+          console.log("La lista está vacía")
+          content = content.replace("Lista vacía", "Lista vacía");
+        }
+
+        res.setHeader('Content-Type', c_type);
+        res.write(content);
+        res.end();
+        return;
+      }
+
+    }
+    
+    if (file == ROOT_FILE) {
+      console.log("PEDIDOS")
+     console.log(tienda["pedidos"])
+     var print_list = "";
+     var mime = "text/html"
+
+     for (i=0; i<tienda["pedidos"].length; i++){
+      print_list += "Usuario: " + tienda["pedidos"][i]["username"] + "<br>" +
+                    "direccion: " + tienda["pedidos"][i]["direccion"] + "<br>" +
+                    "tarjeta: " + tienda["pedidos"][i]["tarjeta"] + "<br>" +
+                    "lista"+ tienda["pedidos"][i]["lista"] + "<br>" + "<br>";
+     }
+
+      content = ROOT.replace("Lista vacía",print_list);
+      res.setHeader('Content-Type', mime);
+      res.write(content);
+      res.end();
+      return;
+
+    }
+
+    if (myURL.pathname == '/') {
+      c_type = "text/html";
+      //--- Si la variable user está asignada
+      if (user_activo) {
+          //-- Añadir a la página el nombre del usuario
+          console.log("user: " + user_activo);
+          if (user_activo == 'root') {
+            data = MAIN.replace("Login", "<a href='html/root.html'> " + user_activo + "</a>" );
+          } else {
+            data = MAIN.replace("Login", user_activo);
+          }
+          
+      } else {
+          //-- Mostrar el enlace a la página de login
+          console.log("No hay user")
+          data = MAIN.replace("HTML_EXTRA", `
+          <a href="login">Login</a>
+          `);
+      }
+  
+      res.setHeader('Content-Type', c_type);
+      res.write(data);
+      res.end();
+      return
+    }
+
+   
 });
 
 //-- Activar el servidor: ¡Que empiece la fiesta!
