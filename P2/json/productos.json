@@ -1,0 +1,29 @@
+{"productos": [{
+    "Baloncesto":[{
+        "nombre": "Muñequeras",
+        "descripcion": "Lesión",
+        "stock": "3"
+        },
+        {
+        "nombre": null,
+        "descripcion": null,
+        "stock":"3"
+        }, 
+        {
+        "nombre": null,
+        "descripcion": null,
+        "stock":"3"
+        }],
+    "Fútbol":[{
+            "nombre": null,
+            "descripcion": null,
+            "stock":"3"
+            }, 
+            {
+            "nombre": null,
+            "descripcion": null,
+            "stock":"3"
+    }]
+}]
+
+}

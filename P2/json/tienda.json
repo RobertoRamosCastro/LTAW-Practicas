@@ -1,0 +1,88 @@
+{
+    "usuarios": [{
+                    "nombre" : "Rober",
+                    "password":"123",
+                    "Real":"Rober"
+        
+                },
+                {
+                    "nombre" : "root",
+                    "password": "root",
+                    "Real": "ddd"
+                }],
+
+    "productos": [{
+                    "url": "html/basket.html",
+                    "nombre": "Codera",
+                    "descripcion": "Lesión",
+                    "stock": 3
+                   },
+                   {
+                    "url": "html/basket.html",
+                    "nombre": "Rodilleras",
+                    "descripcion": "Lesión",
+                    "stock": 3
+                    }, 
+                    {
+                    "url": "html/basket.html",
+                    "nombre": "Muñequeras",
+                    "descripcion": "Lesión",
+                    "stock": 3
+                    },
+                    {
+                    "url": "html/basket.html",
+                    "nombre": "Zapatillas de baloncesto",
+                    "descripcion": "Material deportivo",
+                    "stock": 3
+                    },
+                    {
+                    "url": "html/f11.html",
+                    "nombre": "Botas de cesped natural",
+                    "descripcion": "Material deportivo",
+                    "stock": 3
+                    }, 
+                    {
+                    "url": "html/f11.html",
+                    "nombre": "Botas de cesped artifical",
+                    "descripcion": "Material deportivo",
+                    "stock": 3
+                    },
+                    {
+                    "url": "html/f11.html",
+                    "nombre": "Botas de caucho",
+                    "descripcion": "Material deportivo",
+                    "stock": 3
+                    },
+                    {
+                    "url": "html/f11.html",
+                    "nombre": "Espinilleras de fibra de carbono",
+                    "descripcion": "Material deportivo",
+                    "stock": 3
+                    },
+                    {
+                    "url": "html/fs.html",
+                    "nombre": "Pizarra táctica",
+                    "descripcion": "Material deportivo",
+                    "stock": 3
+                    },
+                    {
+                    "url": "html/fs.html",
+                    "nombre": "Material de agilidad",
+                    "descripcion": "Material deportivo",
+                    "stock": 3
+                    },
+                    {
+                    "url": "html/fs.html",
+                    "nombre": "Zapatillas de fútbol sala",
+                    "descripcion": "Material deportivo",
+                    "stock": 3
+                    },
+                    {
+                    "url": "html/fs.html",
+                    "nombre": "Material de entrenamiento",
+                    "descripcion": "Material deportivo",
+                    "stock": 3
+                    }
+                ],
+    "pedidos": []
+}
