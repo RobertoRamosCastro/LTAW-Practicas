@@ -34,7 +34,7 @@ const ROOT = fs.readFileSync(ROOT_FILE, 'utf-8');
 //-- Obtener el array de productos
 let productos = JSON.parse(PRODUCTOS_JSON);
 
-const FICHERO_PEDIDO = 'html/pedido.html'
+const FICHERO_PEDIDO = 'html/comprado.html'
 
 //-- HTML de la página de respuesta
 const RESPUESTA = fs.readFileSync(FICHERO_RESP, 'utf-8');
