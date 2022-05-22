@@ -88,6 +88,45 @@ function get_user(req) {
   }
 }
 
+function get_items(req) {
+
+  //-- Leer la Cookie recibida
+  const cookie = req.headers.cookie;
+
+  //-- Hay cookie
+  if (cookie) {
+    //-- Obtener un array con todos los pares nombre-valor
+    let pares = cookie.split(";");
+
+    //-- Recorrer todos los pares nombre-valor
+    pares.forEach((element, index) => {
+
+      //-- Obtener los nombres y valores por separado
+      let [nombre, valor] = element.split('=');
+
+      //-- Leer el usuario
+      //-- Solo si el nombre es 'user'
+      if (nombre.trim() === 'carrito') {
+        console.log("Hay objetos")
+        item_list = valor;
+      }
+    });
+
+    //-- Si la variable user no está asignada
+    //-- se devuelve null
+    return item_list || null;
+  } else {
+      item_list = null;
+  }
+
+}
+
+//-- Crear el servidor
+const server = http.createServer((req, res) => {
+  // Obtengo URL
+  let dir = url.parse(req.url);
+
+  
 //-- Activar el servidor: ¡Que empiece la fiesta!
 server.listen(PUERTO);
 console.log("Server listo!. Escuchando en puerto: " + PUERTO);
