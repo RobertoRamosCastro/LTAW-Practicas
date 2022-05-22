@@ -56,7 +56,37 @@ const tienda_json = fs.readFileSync(FICHERO_JSON);
 //-- Creo la estructura
 const tienda = JSON.parse(tienda_json);
 
-function get_user(req)  
+function get_user(req) {
+
+  //-- Leer la Cookie recibida
+  const cookie = req.headers.cookie;
+
+  //-- Hay cookie
+  if (cookie) {
+    
+    //-- Obtener un array con todos los pares nombre-valor
+    let pares = cookie.split(";");
+
+    //-- Recorrer todos los pares nombre-valor
+    pares.forEach((element, index) => {
+
+      //-- Obtener los nombres y valores por separado
+      let [nombre, valor] = element.split('=');
+
+      //-- Leer el usuario
+      //-- Solo si el nombre es 'user'
+      if (nombre.trim() === 'user') {
+        user_activo = valor;
+      }
+    });
+
+    //-- Si la variable user no está asignada
+    //-- se devuelve null
+    return user_activo || null;
+  } else {
+      user_activo = null;
+  }
+}
 
 //-- Activar el servidor: ¡Que empiece la fiesta!
 server.listen(PUERTO);
