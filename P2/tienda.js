@@ -270,8 +270,11 @@ const server = http.createServer((req, res) => {
         "stock": parseInt(stock) 
      }
 
-     // añadir al json?
+     // lo añado al array de pedidos
+     tienda["productos"].push(add_obj)
 
+     let json_salida = JSON.stringify(tienda);
+     fs.writeFileSync(FICHERO_JSON,json_salida);
       
     }
 
@@ -385,6 +388,32 @@ const server = http.createServer((req, res) => {
       return
     }
 
+    //Tipos de archivo y c_type
+
+    switch (rute) {
+      case "png":
+        c_type = "image/" + rute;
+        break;
+      case "jpg":
+        c_type = "image/" + rute;
+        break;
+      case "css":
+        c_type = "text/" + rute;
+        break;
+      case "js":
+        c_type = "text/javascript";
+        break;
+      case "ico":
+        c_type = "image/ico"
+        break;
+      case "/":
+        c_type = "text/html"
+        break;
+      case "html":
+        c_type = "text/html"
+        break;
+    }
+
      // Búsqueda autocompletar
     //-- Leer los parámetros
     let param1 = myURL.searchParams.get('param1');
@@ -422,7 +451,7 @@ const server = http.createServer((req, res) => {
       res.end();
     });
   });
-
+  
 //-- Activar el servidor: ¡Que empiece la fiesta!
 server.listen(PUERTO);
 console.log("Server listo!. Escuchando en puerto: " + PUERTO);
