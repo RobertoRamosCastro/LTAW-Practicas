@@ -25,7 +25,7 @@ body{
 
 #msg_entry{
     border-style: ridge;
-    border 5px solid rgb(179, 179, 179);
+    border: 5px solid rgb(179, 179, 179);
     border-width: 5px;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.548);
