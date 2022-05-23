@@ -2,13 +2,6 @@
     box-sizing: border-box;
   }
   
-  
-  body {
-    background: radial-gradient(rgb(159, 250, 189) 5%, rgb(255, 227, 136) 25%, #ffcbcb 50%);
-    background-repeat: no-repeat;
-    height: 100vh;
-  }
-  
   #user {
         position: absolute;
         top:50%;
@@ -48,7 +41,7 @@
     border-radius: 10px;
     height: auto;
     width: 40%;
-    background-color: rgb(213, 206, 241);
+    background-color: orange;
     padding: 10px;
   }
   
@@ -65,7 +58,7 @@
   }
   
   body {
-  background: radial-gradient(rgb(159, 217, 250) 5%, rgb(136, 231, 255) 25%, #cbe5ff 50%);
+    background: radial-gradient(white, black);
   background-repeat: no-repeat;
   height: 100vh;
   }
@@ -103,12 +96,12 @@
   
   .typing {
   display: 'none';
-  color: rgb(102, 102, 102);
+  color: blue;
   }
   
   #display_user {
   margin-left: 50%;
-  color: rgb(88, 88, 88);
+  color: blue;
   text-align: right;
   }
   
@@ -119,6 +112,6 @@
   }
   
   .server_msg {
-  color:rgb(179, 179, 179);
+  color:greenyellow;
   text-align: center;
   }

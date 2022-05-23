@@ -25,7 +25,7 @@ info6.textContent = process.cwd();
 
 console.log(process.versions)
 btn_test.onclick = () => {
-    const test_msg =  "Hola desde electron! "
+    const test_msg =  "Hola desde electron!"
     display.innerHTML += '<p class:"mensaje">' + test_msg + '</p>';
     console.log("Botón apretado!");
     //-- Enviar mensaje al proceso principal
