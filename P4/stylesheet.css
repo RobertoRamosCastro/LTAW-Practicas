@@ -4,7 +4,7 @@
   
   
   body {
-    background: radial-gradient(rgb(159, 217, 250) 5%, rgb(136, 231, 255) 25%, #cbe5ff 50%);
+    background: radial-gradient(rgb(159, 250, 189) 5%, rgb(255, 227, 136) 25%, #ffcbcb 50%);
     background-repeat: no-repeat;
     height: 100vh;
   }

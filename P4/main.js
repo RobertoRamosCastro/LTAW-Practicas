@@ -36,8 +36,6 @@ electron.app.on('ready', () => {
 
   win.webContents.send('print', "MENSAJE ENVIADO DESDE PROCESO MAIN");
   
-  
-
 });
 
 // TODO CHAT
@@ -136,7 +134,7 @@ io.on('connect', (socket) => {
     if (msg=='/help') {
         console.log("Mensaje de ayuda".red)
         msg = '/help: Devuelve la lista con todos los comandos' + "<br>" +
-        '/list : Devvuelve el numero de usuarios conectados' + "<br" +
+        '/list : Devvuelve el numero de usuarios conectados' + "<br>" +
         '/hello : Devuelve el saludo del servidor' + "<br>" +
         '/date : Devulve la fecha' + "<br>" +
         '/"nombre_usuario": manda un mensaje privado'
@@ -163,8 +161,7 @@ io.on('connect', (socket) => {
       }
       io.to(socketId).emit('message', msg);
     } else if (msg.split("/")[0] == "") {
-      // msg.split("/")[0] --> " "
-      // msgsplit("/")[1] --> "username + mensaje"
+
       console.log("Es un mensaje privado")
 
       // separo el usuario del mensaje
