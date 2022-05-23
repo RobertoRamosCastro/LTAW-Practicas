@@ -9,7 +9,7 @@ var typing_msg = document.getElementsByClassName("typing");
 var user = "";
 var typing = false;
 var nickname = false;
-const sound_msg = new Audio("new_msg.oga");
+const sound_msg = new Audio("new_msg.mp3");
 
 
 function play_sound(sound){
